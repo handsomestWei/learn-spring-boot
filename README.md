@@ -37,7 +37,15 @@ maven pom配置
 @Override
 protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
         return builder.sources(this.getClass());
+	// 还可以显式声明应用类型WebApplicationType
+	// return builder.sources(this.getClass()).web(WebApplicationType.NONE);
 }
+```
+应用类型WebApplicationType分三种
+```
+NONE：应用程序不作为web应用启动，不启动内嵌的服务。
+SERVLET：应用程序以基于servlet的web应用启动，需启动内嵌servlet web服务。
+REACTIVE：应用程序以响应式web应用启动，需启动内嵌的响应式web服务。
 ```
 configure调用关系
 <div align=center><img width="917" height="123" src="https://github.com/handsomestWei/learn-spring-boot/blob/master/doc/configure-caller.png" /></div>
